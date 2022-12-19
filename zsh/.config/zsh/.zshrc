@@ -4,6 +4,8 @@
 # history
 HISTFILE=~/.zsh_history
 bindkey -v
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[2~" overwrite-mode
@@ -12,7 +14,6 @@ bindkey "^[[5~" beginning-of-buffer-or-history
 bindkey "^[[6~" end-of-buffer-or-history
 bindkey '^sp' history-beginning-search-backward
 bindkey '^sn' history-beginning-search-forward
-
 
 # source
 plug "$HOME/.config/zsh/aliases.zsh"
