@@ -18,6 +18,9 @@ bindkey '^sn' history-beginning-search-forward
 # source
 plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/exports.zsh"
+if [ -e "$HOME/.config/zsh/cdpaths.zsh" ]; then
+  plug "$HOME/.config/zsh/cdpaths.zsh"
+fi
 
 # plugins
 plug "zsh-users/zsh-autosuggestions"
