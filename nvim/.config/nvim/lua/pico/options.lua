@@ -1,53 +1,34 @@
-local options = {
-  background = "dark",
-  backup = true,                          -- creates a backup file
-  backupdir = "/home/pico/vimbak//,.",
-  clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
-  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0,                        -- so that `` is visible in markdown files
-  cursorline = true,                       -- highlight the current line
-  expandtab = true,                        -- convert tabs to spaces
-  fileencoding = "utf-8",                  -- the encoding written to a file
-  guifont = "monospace:h17",               -- the font used in graphical neovim applications
-  hlsearch = true,                         -- highlight all matches on previous search pattern
-  ignorecase = false,                       -- ignore case in search patterns
-  mouse = "",
-  number = true,                           -- set numbered lines
-  numberwidth = 4,                         -- set number column width to 2 {default 4}
-  pumheight = 10,                          -- pop up menu height
-  relativenumber = true,                   -- set relative numbered lines
-  scrolloff = 8,                           -- is one of my fav
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
-  showtabline = 2,                         -- always show tabs
-  sidescrolloff = 8,
-  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  smartcase = true,                        -- smart case
-  smartindent = true,                      -- make indenting smarter again
-  splitbelow = true,                       -- force all horizontal splits to go below current window
-  splitright = true,                       -- force all vertical splits to go to the right of current window
-  swapfile = true,                        -- creates a swapfile
-  tabstop = 2,                             -- insert 2 spaces for a tab
-  termguicolors = true,                    -- set term gui colors (most terminals support this)
-  timeoutlen = 500,                        -- time to wait for a mapped sequence to complete (in milliseconds)
-  undofile = false,                         -- enable persistent undo
-  updatetime = 300,                        -- faster completion (4000ms default)
-  wrap = true,                            -- display lines as one long line
-  writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-}
+local home_dir = os.getenv("HOME")
+vim.opt.guicursor = ""
 
-vim.opt.shortmess:append "c"
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
-end
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
-vim.g.python3_host_prog = "/home/pico/.pyenv/versions/3.9.13/envs/py3nvim/bin/python"
-vim.g.ale_linters = {python = {'flake8', 'mypy', 'pyright'}}
-vim.g.ale_completion_enabled = 1
-vim.opt.path:append "**"
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = home_dir .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
+
+vim.g.python3_host_prog = home_dir .. "/.pyenv/versions/3.9.13/envs/py3nvim/bin/python"
 
