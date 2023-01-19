@@ -29,6 +29,8 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+vim.opt.list = true
+vim.opt.listchars:append "trail:⍽"
 
 vim.g.python3_host_prog = home_dir .. "/.pyenv/versions/3.9.13/envs/py3nvim/bin/python"
 
