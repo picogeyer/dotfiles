@@ -18,7 +18,7 @@ vim.opt.backup = false
 vim.opt.undodir = home_dir .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -30,7 +30,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 vim.opt.list = true
-vim.opt.listchars:append "trail:⍽"
+vim.opt.listchars = "trail:⍽"
 vim.opt.mouse = ""
 
 vim.g.python3_host_prog = home_dir .. "/.pyenv/versions/3.9.13/envs/py3nvim/bin/python"
