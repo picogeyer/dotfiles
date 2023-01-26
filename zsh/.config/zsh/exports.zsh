@@ -1,4 +1,5 @@
 #!/bin/sh
+SD=$(readlink -f $(dirname $0))
 # HISTFILE="$XDG_DATA_HOME"/zsh/history
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -12,6 +13,10 @@ export GOPATH=$HOME/.local/share/go
 export PATH="$HOME/.local/share/neovim/bin":$PATH
 export XDG_CURRENT_DESKTOP="Wayland"
 export RANGER_LOAD_DEFAULT_RC=FALSE
+HOSTN=$(hostname)
+if [ -f  $SD/${HOSTN}_exports.zsh ]; then
+    . $SD/${HOSTN}_exports.zsh
+fi
 
 
 
