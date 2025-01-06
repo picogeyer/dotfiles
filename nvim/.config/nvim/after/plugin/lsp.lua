@@ -1,13 +1,30 @@
 local lsp = require('lsp-zero')
 
-lsp.preset('recommended')
+lsp.preset({
+    name = 'minimal';
+    set_lsp_keymaps = true,
+    manage_nvim_cmp = true,
+    suggest_lsp_servers = false
+})
+-- lsp.nvim_workspace()
 
-lsp.ensure_installed({
-  'tsserver',
-  'sumneko_lua',
-  'pyright'
+-- These names come from here
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+lsp.setup_servers({
+    'clangd',
+    'pyright',
+    'lua_ls',
+    'nixd',
+    'ts_ls',
+    'zls',
 })
 
+lsp.setup_nvim_cmp({
+  preselect = 'none',
+  completion = {
+    completeopt = 'menu,menuone,noinsert,noselect'
+  },
+})
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select}
