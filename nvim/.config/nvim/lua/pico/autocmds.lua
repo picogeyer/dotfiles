@@ -12,14 +12,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 api.nvim_create_augroup("fileopts", {clear=true})
-api.nvim_create_autocmd("FileType", {
-    pattern="nix",
-    group="fileopts",
-    command="set et sw=2 ts=2"
-})
+-- Watch out, defaults, other files must be defined after this
 api.nvim_create_autocmd("FileType", {
     group="fileopts",
     command = "set et sw=4 ts=4"
+})
+api.nvim_create_autocmd("FileType", {
+    pattern= { "nix" },
+    group="fileopts",
+    command="set et sw=2 ts=2"
 })
 api.nvim_create_autocmd("FileType", {
     pattern = { "c" },
